@@ -3,12 +3,19 @@ from agents.political_agent import PoliticalAgent
 
 PoliticalTask = Task(
     description=(
-        "Evaluate the current political landscape of {country}, including political stability, "
-        "transparency, corruption perception, electoral integrity, and trust in public institutions. "
-        "Review historical context and current events. Suggest 3 governance or policy reforms that could "
-        "improve democratic functioning, reduce corruption, or increase political trust."
-        "(from the last 6 months) and avoid over-relying on outdated 2023 data."
+        "Evaluate the political landscape of {country}, focusing on political stability, institutional transparency, "
+        "corruption perception, rule of law, electoral integrity, and public trust in government. "
+        "Include analysis of civil society engagement, freedom of press, and judicial independence. "
+        "Incorporate historical trends, recent developments, and regional context. "
+        "Recommend 3 governance or policy reforms that could strengthen democratic resilience, reduce corruption, "
+        "or rebuild institutional trust."
     ),
-    expected_output="A detailed report on political health with 3 reform recommendations.",
+    expected_output=(
+        "A concise report on political system health, including:\n"
+        "- Assessment of political risks, freedoms, and institutional integrity\n"
+        "- Notable events or shifts in governance, media, or legal frameworks\n"
+        "- Three actionable reform suggestions to improve political accountability and democratic function"
+    ),
     agent=PoliticalAgent
 )
+

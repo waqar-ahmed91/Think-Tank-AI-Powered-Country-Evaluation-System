@@ -3,12 +3,17 @@ from agents.education_agent import EducationAgent
 
 EducationTask = Task(
     description=(
-        "Analyze the educational performance of {country} using historical and current data. "
-        "Evaluate literacy rates, enrollment levels in primary, secondary, and tertiary education, "
-        "education spending, and skills gaps related to employment. "
-        "Identify 3 actionable reforms or investments to enhance the education system."
-        "(from the last 6 months) and avoid over-relying on outdated 2023 data."
+        "Evaluate the educational performance of {country} using historical and recent data. "
+        "Analyze literacy trends, enrollment rates at primary, secondary, and tertiary levels, "
+        "government spending on education, and alignment of education with labor market needs. "
+        "Identify systemic gaps, challenges in access or quality, and regional disparities. "
+        "Recommend 3 strategic reforms or investments to improve educational outcomes and employability."
     ),
-    expected_output="An education system summary with 3 key improvement strategies.",
+    expected_output=(
+        "A concise education sector analysis including:\n"
+        "- Key indicators and challenges\n"
+        "- Gaps in access, quality, or relevance\n"
+        "- 3 targeted improvement strategies or reforms"
+    ),
     agent=EducationAgent
 )

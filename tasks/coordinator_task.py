@@ -3,19 +3,29 @@ from agents.coordinator_agent import CoordinatorAgent
 
 CoordinatorTask = Task(
     description=(
-        "Review the analyses provided by the economic, education, and political agents for {country}. "
-        "Identify recurring themes, strategic challenges, and synergistic opportunities. "
-        "Summarize their findings in a markdown-ready format under 3 sections: Key Insights, Policy Recommendations, and Risks to Watch. "
-        "Ensure the recommendations are coherent and non-conflicting across sectors."
+        "You are the final synthesizer. Review the findings from all domain-specific agents analyzing {country}.\n\n"
+        "Context:\n{context}\n\n"
+        "Your goal is to integrate these findings into a cohesive national development summary. "
+        "Identify recurring themes, strategic challenges, and synergistic opportunities across domains. "
+        "Avoid duplication, resolve conflicting insights, and ensure that all recommendations align toward a coherent policy vision.\n\n"
+        "Summarize the results in markdown under the following 3 sections:\n"
+        "- **Key Insights** (max 10 bullet points)\n"
+        "- **Policy Recommendations** (max 10 bullet points)\n"
+        "- **Risks to Watch** (max 10 bullet points)\n\n"
     ),
     expected_output=(
-        "A markdown summary with:\n"
-        "- **Key Insights** (max 5 bullet points)\n"
-        "- **Policy Recommendations** (max 5 bullet points)\n"
-        "- **Risks to Watch** (max 3 bullet points)"
+        "A well-structured markdown report including:\n"
+        "### 📌 Key Insights\n"
+        "Highlight recurring trends, critical issues, or breakthrough observations.\n\n"
+        "### 🛠️ Recommendations\n"
+        "Actionable, non-overlapping and synergistic strategies.\n\n"
+        "### ⚠️ Risks to Watch\n"
+        "Potential threats, implementation bottlenecks, or cross-sector vulnerabilities.\n\n"
+        # "**End your report with:** `— Report compiled successfully.`"
     ),
     agent=CoordinatorAgent,
-    context=[
-        # Add dependent tasks' outputs here dynamically in your code
+    context=[  # You can dynamically add task outputs from other agents
+        # e.g. economic_analysis_task.output, healthcare_task.output, etc.
     ]
 )
+

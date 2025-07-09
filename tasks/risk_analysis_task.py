@@ -2,18 +2,21 @@ from crewai import Task
 from agents.risk_analysis_agent import RiskAgent
 
 RiskTask = Task(
-    name="National Risk Analysis",  # Optional, improves logging
+    name="National Risk Analysis",
     description=(
-        "Construct a comprehensive risk profile for {country}. "
-        "Include assessment of:\n"
-        "- Cybersecurity threats and digital vulnerabilities\n"
-        "- Political instability (governance, protests, trust)\n"
-        "- Environmental and climate-related shocks (e.g., floods, droughts)\n"
-        "- Economic fragility (inflation, debt, inequality, trade balance)\n\n"
-        "Use data from global organizations and recent news to support insights. "
-        "Suggest 3–5 strategic mitigation priorities."
-        "(from the last 6 months) and avoid over-relying on outdated 2023 data."
+        "Develop a comprehensive national risk profile for {country}. "
+        "Analyze vulnerabilities across four key domains:\n"
+        "- **Cybersecurity**: digital infrastructure threats, data breaches, and resilience\n"
+        "- **Political Stability**: governance risks, civil unrest, and institutional trust\n"
+        "- **Environmental Hazards**: climate shocks, natural disasters, and resource degradation\n"
+        "- **Economic Fragility**: inflation, sovereign debt, unemployment, inequality, and trade imbalance\n\n"
+        "Draw insights from global indices, risk reports, and recent news developments. "
+        "Identify 3 to 5 critical risk mitigation strategies that national policymakers should prioritize."
     ),
-    expected_output="A structured national risk report with four risk categories and corresponding mitigation priorities.",
+    expected_output=(
+        "A structured risk intelligence report organized into:\n"
+        "- Four categorized risk summaries (Cyber, Political, Environmental, Economic)\n"
+        "- A prioritized list of 3–5 mitigation strategies tailored for national resilience"
+    ),
     agent=RiskAgent
 )

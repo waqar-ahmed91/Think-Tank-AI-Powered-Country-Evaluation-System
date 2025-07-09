@@ -2,7 +2,17 @@ from crewai import Task
 from agents.environment_agent import EnvironmentAgent
 
 EnvironmentTask = Task(
-    description="Assess environmental challenges in {country}. Cover air quality, emissions, land use, and climate risk (from the last 6 months) and avoid over-relying on outdated 2023 data.",
-    expected_output="Sustainability status and three green policy actions.",
+    description=(
+        "Evaluate key environmental challenges in {country}, including air and water quality, deforestation, "
+        "carbon emissions, biodiversity loss, and vulnerability to climate change. "
+        "Identify high-risk ecological zones and assess policy effectiveness in environmental protection. "
+        "Propose 3 practical and impactful green policy actions to improve environmental sustainability."
+    ),
+    expected_output=(
+        "An environmental risk assessment including:\n"
+        "- Summary of major environmental stressors and trends\n"
+        "- Vulnerable ecosystems or geographic regions\n"
+        "- 3 evidence-based policy actions for sustainability and climate adaptation"
+    ),
     agent=EnvironmentAgent
 )
